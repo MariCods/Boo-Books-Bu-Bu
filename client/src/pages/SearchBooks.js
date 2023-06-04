@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
+import { GET_ME} from '../utils/queries';
 import {
   Container,
   Col,
@@ -12,8 +13,11 @@ import {
 import Auth from '../utils/auth';
 import { saveBook, searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+import { GET_ME } from '../utils/queries';
 
 const SearchBooks = () => {
+  const { loading, data } = useQuery(GET_ME)
+  const [saveBook, { error }] = useMutation(GET_ME);
   // create state for holding returned google api data
   const [searchedBooks, setSearchedBooks] = useState([]);
   // create state for holding our search field data
