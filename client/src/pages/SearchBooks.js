@@ -82,8 +82,14 @@ const SearchBooks = () => {
 
     try {
       const { data } = await saveBook({
-        variables: { bookData: { ...bookToSave } },
+        variables: {
+          username: 'exampleUser', // Provide the username
+          email: 'example@example.com', // Provide the email
+          password: 'examplePassword', // Provide the password
+          bookData: { ...bookToSave },
+        },
       });
+      
       console.log(savedBookIds);
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
     } catch (err) {
