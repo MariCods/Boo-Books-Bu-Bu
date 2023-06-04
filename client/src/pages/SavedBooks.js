@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-// import { GET_ME} from '../utils/queries';
+import { GET_ME} from '../utils/queries';
 import {
   Container,
   Card,
@@ -55,7 +55,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await removeBook(bookId, token);
+      const response = await useMutation(bookId, token);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
