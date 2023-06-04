@@ -15,14 +15,14 @@ function App() {
     <Router>
       <Navbar />
         <div className="display-2"><h1> Wrong page!</h1>
-        {/* <Routes> */}
-          <Route 
+        
+        <Route 
           path="/" 
           element={SearchBooks} />
           <Route 
           path="/saved" 
           element={SavedBooks} />
-          {/* </Routes> */}
+          
           </div>
     </Router>
     </ApolloProvider>

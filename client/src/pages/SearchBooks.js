@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useMutation, useQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { GET_ME} from '../utils/queries';
 import {
   Container,
@@ -79,7 +79,7 @@ const SearchBooks = () => {
     }
 
     try {
-      const { data } = await saveBook({ variables: { bookToSave } })
+      const { data } = await saveBook({ variables: { bookToSave } (token) })
 
       if (data.ok) {
         throw new Error('something went wrong!');
