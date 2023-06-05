@@ -20,7 +20,7 @@ const resolvers = {
         //   },
           me: async (parent, args, context) => {
             if (context.user) {
-              return User.findOne({ _id: context.user._id }).populate('books');
+              return User.findOne({ _id: context.user._id })
             }
             throw new AuthenticationError('You need to be logged in!');
     },
@@ -28,9 +28,17 @@ const resolvers = {
 
 Mutation: {
     addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
-      return { token, user };
+      try{
+
+        const user = await User.create({ username, email, password });
+        const token = signToken(user);
+        return { token, user };
+      }catch(error){
+        console.log(error)
+      }
+      // const user = await User.create({ username, email, password });
+      // const token = signToken(user);
+      // return { token, user };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -49,19 +57,24 @@ Mutation: {
 
       return { token, user };
     },
-    saveBook: async (parent, { bookId }, context) => {
+    saveBook: async (parent, { bookData }, context) => {
       if (context.user) {
-        const book = await Thought.create({
-          bookDescription,
-          book_author: context.user.bookSchema,
-        });
+        
+        try {
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { savedBooks: bookData} },
+            { new: true, runValidators: true }
+            
+          );
+          console.log(updatedUser)
+          return updatedUser
+        } catch (err) {
+          console.log(err);
+         
+        }
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { thoughts: book._id } }
-        );
-
-        return book;
+      
       }
       throw new AuthenticationError('You need to be logged in!');
     },

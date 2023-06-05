@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 import { REMOVE_BOOK } from '../utils/mutations';
@@ -82,7 +82,7 @@ const SavedBooks = () => {
       </div>
       <Container>
         <h2 className='pt-5'>
-          {userData.savedBooks.length
+          {userData?.savedBooks.length
             ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
             : 'You have no saved books!'}
         </h2>

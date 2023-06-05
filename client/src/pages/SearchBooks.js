@@ -83,9 +83,9 @@ const SearchBooks = () => {
     try {
       const { data } = await saveBook({
         variables: {
-          username: 'exampleUser', // Provide the username
-          email: 'example@example.com', // Provide the email
-          password: 'examplePassword', // Provide the password
+          // username: 'exampleUser', // Provide the username
+          // email: 'example@example.com', // Provide the email
+          // password: 'examplePassword', // Provide the password
           bookData: { ...bookToSave },
         },
       });
