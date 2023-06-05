@@ -10,8 +10,8 @@ mutation Mutation($email: String!, $password: String!) {
         email
         savedBooks {
           bookId
-          bookAuthor
-          bookDescription
+          authors
+      description
           image
           link
           title
@@ -31,8 +31,8 @@ mutation Mutation($username: String!, $email: String!, $password: String!) {
         bookCount
         savedBooks {
           bookId
-          bookAuthor
-          bookDescription
+          authors
+          description
           image
           link
           title
@@ -50,8 +50,8 @@ mutation saveBook($bookData: BookInput!) {
     email
     savedBooks {
       bookId
-      bookAuthor
-      bookDescription
+      authors
+      description
       image
       link
       title
@@ -69,8 +69,8 @@ mutation Mutation($bookId: ID!) {
       bookCount
       savedBooks {
         bookId
-        bookAuthor
-        bookDescription
+        authors
+        description
         image
         link
         title

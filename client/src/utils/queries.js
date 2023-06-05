@@ -6,8 +6,8 @@ query me {
     _id
     savedBooks {
       bookId
-      bookAuthor
-      bookDescription
+      authors
+      description
       image
       link
       title

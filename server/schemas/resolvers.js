@@ -63,7 +63,7 @@ Mutation: {
         try {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $addToSet: { bookData: savedBook} },
+            { $addToSet: { bookData: bookData} },
             { new: true, runValidators: true }
             
           );
