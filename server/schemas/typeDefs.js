@@ -28,8 +28,8 @@ type Query {
   }
 
   input BookInput {
-    authors: [String]
-    description: String!
+    bookAuthors: [String]!
+    bookDescription: String!
     bookId: String!
     image: String
     link: String
