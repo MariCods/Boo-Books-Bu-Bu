@@ -28,8 +28,8 @@ THEN I am presented with all of the books I have saved to my account, each featu
 WHEN I click on the Remove button on a book
 THEN that book is deleted from my saved books list
 WHEN I click on the Logout button
-THEN I am logged out of the site and presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button  
-The submit button is having a slight error but I will resubmit when I fixed it
+THEN I am logged out of the site and presented with a menu with the options Search for Books and Login
+The saved books page is having a error displaying the books, but I am working on it. 
 # Installation
 Sign in and save and remove books from saved books
 
@@ -51,7 +51,7 @@ https://github.com/MariCods/Boo-Books-Bu-Bu
 
 [Deployed Link]
 
-https://puu-puu-texts-app.herokuapp.com/
+https://book-book-buu-app.herokuapp.com/
 # License
    
 [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://opensource.org/licenses/MIT)
